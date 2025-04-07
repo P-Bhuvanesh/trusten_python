@@ -161,3 +161,7 @@
 2025-04-07 12:57:50,902 - __main__ - WARNING - [no_request_id] - [8af2728b-a941-4078-bcbf-f1cd8de00ba1] Bhuvanesh P has already checked out today.
 2025-04-07 13:12:02,761 - __main__ - INFO - [no_request_id] - Application shutting down
 2025-04-07 13:12:08,175 - __main__ - INFO - [no_request_id] - Database connection closed
+2025-04-07 15:50:02,386 - __main__ - WARNING - [no_request_id] - [a082967c-8cb2-402b-851d-a7f8c375bfd5] Duplicate check-in attempt for Bhuvanesh P
+2025-04-07 15:50:14,092 - __main__ - WARNING - [no_request_id] - [d99b2e4f-2a44-40c5-827e-30a2aea7e861] Tester has already checked out today.
+2025-04-07 15:52:59,265 - __main__ - INFO - [no_request_id] - Application shutting down
+2025-04-07 15:52:59,389 - __main__ - INFO - [no_request_id] - Database connection closed

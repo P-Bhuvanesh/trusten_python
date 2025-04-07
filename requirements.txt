@@ -19,3 +19,4 @@ tensorboard==2.19.0
 tensorboard-data-server==0.7.2
 tensorflow==2.19.0
 uvicorn==0.34.0
+opencv-python-headless==4.11.0.86
