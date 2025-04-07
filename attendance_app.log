@@ -1,0 +1,163 @@
+2025-03-29 10:28:01,004 - comtypes.client._code_cache - INFO - Could not import comtypes.gen, trying to create it.
+2025-03-29 10:28:01,005 - comtypes.client._code_cache - INFO - Created comtypes.gen directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-03-29 10:28:01,005 - comtypes.client._code_cache - INFO - Writing __init__.py file: 'D:\backend\venv\lib\site-packages\comtypes\gen\__init__.py'
+2025-03-29 10:28:01,021 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-03-29 10:28:01,043 - comtypes.client._generate - INFO - Could not import comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4: No module named 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4'
+2025-03-29 10:28:01,049 - comtypes.client._generate - INFO - # Generating comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4
+2025-03-29 10:28:01,124 - comtypes.client._generate - INFO - # Generating comtypes.gen.SpeechLib
+2025-03-29 10:28:01,131 - comtypes.client._generate - INFO - Could not import comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0: No module named 'comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0'
+2025-03-29 10:28:01,132 - comtypes.client._generate - INFO - # Generating comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0
+2025-03-29 10:28:01,137 - comtypes.client._generate - INFO - # Generating comtypes.gen.stdole
+2025-03-29 10:28:02,236 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-03-29 10:28:02,238 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-03-29 10:28:05,480 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-03-29 10:28:55,293 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-03-29 10:28:55,294 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-03-29 10:28:55,465 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-03-29 10:28:55,465 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-03-29 10:28:59,688 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-03-29 10:33:42,215 - __main__ - INFO - Hari Krishna checked in at 10:33:36
+2025-03-29 10:34:33,578 - __main__ - INFO - Hari Krishna checked out at 10:34:29
+2025-03-29 10:35:16,620 - __main__ - WARNING - Duplicate check-in attempt for Hari Krishna
+2025-03-29 10:36:55,788 - __main__ - INFO - Bhuvanesh P checked in at 10:36:50
+2025-03-29 10:37:19,319 - __main__ - WARNING - Duplicate check-in attempt for Hari Krishna
+2025-03-29 10:38:55,453 - __main__ - ERROR - Error in check_in: E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }', 'keyPattern': {'_id': 1}, 'keyValue': {'_id': 68660}}
+2025-03-29 10:38:55,510 - __main__ - ERROR - Unhandled exception: E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }', 'keyPattern': {'_id': 1}, 'keyValue': {'_id': 68660}}
+2025-03-29 10:40:34,630 - __main__ - WARNING - Duplicate check-in attempt for Bhuvanesh P
+2025-03-29 10:41:09,788 - __main__ - WARNING - Duplicate check-in attempt for Hari Krishna2025-03-29 10:42:35,012 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-03-29 10:42:35,013 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-03-29 10:42:35,183 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-03-29 10:42:35,183 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-03-29 10:42:39,065 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-03-29 10:42:59,616 - __main__ - ERROR - Error in check_in: E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }', 'keyPattern': {'_id': 1}, 'keyValue': {'_id': 68660}}
+2025-03-29 10:42:59,628 - __main__ - ERROR - Unhandled exception: E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }', 'keyPattern': {'_id': 1}, 'keyValue': {'_id': 68660}}
+2025-03-29 10:43:29,363 - __main__ - WARNING - Duplicate check-in attempt for Hari Krishna
+2025-03-29 10:44:15,155 - __main__ - WARNING - Duplicate check-in attempt for Hari Krishna
+2025-03-29 10:45:47,490 - __main__ - INFO - Bhuvanesh P checked out at 10:45:43
+2025-03-29 10:48:33,456 - __main__ - WARNING - Duplicate check-in attempt for Hari Krishna
+2025-03-29 10:49:49,172 - __main__ - ERROR - Error in check_in: E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }', 'keyPattern': {'_id': 1}, 'keyValue': {'_id': 68660}}
+2025-03-29 10:49:49,217 - __main__ - ERROR - Unhandled exception: E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }', 'keyPattern': {'_id': 1}, 'keyValue': {'_id': 68660}}
+2025-03-29 10:50:24,270 - __main__ - ERROR - Error in check_in: E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }', 'keyPattern': {'_id': 1}, 'keyValue': {'_id': 68660}}
+2025-03-29 10:50:24,279 - __main__ - ERROR - Unhandled exception: E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: userlogs.attendance index: _id_ dup key: { _id: 68660 }', 'keyPattern': {'_id': 1}, 'keyValue': {'_id': 68660}}
+2025-03-29 10:50:31,187 - __main__ - WARNING - Duplicate check-in attempt for Bhuvanesh P
+2025-03-29 12:53:06,795 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-03-29 12:53:06,796 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-03-29 12:53:08,084 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-03-29 12:53:08,085 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-03-29 12:53:13,799 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-03-29 13:01:29,542 - __main__ - INFO - S Pugazenthi checked in at 13:01:23
+2025-03-29 13:01:42,529 - __main__ - WARNING - Duplicate check-in attempt for S Pugazenthi
+2025-03-31 12:40:30,061 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-03-31 12:40:30,062 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-03-31 12:40:30,679 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-03-31 12:40:30,680 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-03-31 12:40:34,393 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-03-31 16:30:19,344 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-03-31 16:30:19,346 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-03-31 16:30:20,046 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-03-31 16:30:20,048 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-03-31 16:30:24,619 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-03-31 16:33:30,031 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-03-31 16:33:30,031 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-03-31 16:33:30,183 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-03-31 16:33:30,184 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-03-31 16:33:33,443 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-03-31 16:35:34,268 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-03-31 16:35:34,269 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-03-31 16:35:34,391 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-03-31 16:35:34,391 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-03-31 16:35:37,480 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-04-06 16:06:57,745 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-04-06 16:06:57,746 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-04-06 16:06:59,773 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-06 16:06:59,774 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-06 16:07:03,380 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-04-06 16:07:58,188 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-04-06 16:07:58,190 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-04-06 16:07:58,440 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-06 16:07:58,440 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-06 16:08:01,341 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-04-06 16:08:07,926 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-04-06 16:08:07,926 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-04-06 16:08:08,187 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-06 16:08:08,187 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-06 16:08:11,123 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-04-06 16:08:11,810 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-06 16:08:11,811 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-06 16:08:42,944 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-04-06 16:08:42,945 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-04-06 16:08:44,684 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-06 16:08:44,684 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-06 16:08:47,851 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-04-06 16:08:51,227 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-06 16:08:51,229 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-06 22:51:10,373 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-06 22:51:10,375 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-06 22:51:13,888 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-04-06 22:58:51,700 - __main__ - ERROR - Unhandled exception: operation cancelled
+2025-04-07 10:32:04,232 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'D:\\backend\\venv\\lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-04-07 10:32:04,233 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'D:\backend\venv\lib\site-packages\comtypes\gen'
+2025-04-07 10:32:07,656 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-07 10:32:07,657 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-07 10:32:13,533 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-04-07 10:33:40,996 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-07 10:33:40,998 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-07 10:33:45,224 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-04-07 10:43:58,565 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-07 10:43:58,566 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-07 10:44:01,806 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-04-07 10:47:21,715 - __main__ - INFO - Tester checked in at 10:47:21
+2025-04-07 10:48:44,148 - __main__ - WARNING - Duplicate check-in attempt for Tester
+2025-04-07 10:51:04,945 - __main__ - ERROR - Unexpected error connecting to MongoDB: bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}
+2025-04-07 10:51:04,955 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-07 10:51:04,956 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-07 10:51:08,009 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-04-07 10:51:55,956 - keras_facenet.embedding_model - INFO - Loading weights.
+2025-04-07 10:51:55,957 - keras_facenet.utils - INFO - Looking for C:\Users\pbhuv/.keras-facenet\20180402-114759\20180402-114759-weights.h5
+2025-04-07 10:51:59,307 - tensorflow - WARNING - From D:\backend\venv\lib\site-packages\keras\src\backend\tensorflow\core.py:219: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+2025-04-07 11:08:59,937 - __main__ - WARNING - [no_request_id] - [58b9e360-421a-4af6-a1b9-4a8b9350bbbd] Duplicate check-in attempt for Tester
+2025-04-07 11:09:08,642 - __main__ - INFO - [no_request_id] - [1fd18100-3090-4fc7-b051-bdbb0dde743f] Tester checked out at 11:09:08
+2025-04-07 11:09:20,212 - __main__ - INFO - [no_request_id] - [19b9319a-0497-487f-a918-f785b3468b3b] Retrieved 2 user IDs
+2025-04-07 11:09:22,262 - __main__ - INFO - [no_request_id] - [73188da9-82ce-49ac-baea-e3d9791f1c5e] Retrieved 28 attendance records for user 67625
+2025-04-07 11:09:43,358 - __main__ - INFO - [no_request_id] - [8756f3f8-8593-4449-90cd-e69bf4ed7f8a] Retrieved 1 attendance records for user 98161
+2025-04-07 11:09:54,824 - __main__ - INFO - [no_request_id] - [18cf7aca-1c50-4394-a2e3-de5ed747b326] Retrieved 2 users
+2025-04-07 11:11:38,350 - __main__ - INFO - [no_request_id] - [7851d95d-cb96-4c4a-a34f-476440911caf] User Bhuvanesh P (ID: 25403) successfully added
+2025-04-07 11:11:53,938 - __main__ - INFO - [no_request_id] - [864ec4c2-d7b6-4fec-9665-d4a4812e56cc] Retrieved 3 user IDs
+2025-04-07 11:11:56,883 - __main__ - INFO - [no_request_id] - [e0ff76d3-15d6-4a75-ad5c-159ebfed0533] Retrieved 0 attendance records for user 25403
+2025-04-07 11:12:10,093 - __main__ - WARNING - [no_request_id] - [e6658620-656e-4231-9123-d67a0ae89304] Duplicate check-in attempt for Tester
+2025-04-07 11:12:22,484 - __main__ - WARNING - [no_request_id] - [6abc53e0-b138-4121-a320-f2c91ecb1d79] Bhuvanesh P has not checked in today.
+2025-04-07 11:12:28,849 - __main__ - INFO - [no_request_id] - [567a08b0-2a29-4fb4-a80f-7e7a79e61e3f] Bhuvanesh P checked in at 11:12:28
+2025-04-07 11:12:38,867 - __main__ - INFO - [no_request_id] - [ee323af3-9af5-484a-b165-a3985a6c7165] Retrieved 3 user IDs
+2025-04-07 11:12:40,923 - __main__ - INFO - [no_request_id] - [42b02996-fff9-4301-9585-2c0487a41f11] Retrieved 1 attendance records for user 25403
+2025-04-07 11:40:58,439 - __main__ - ERROR - [no_request_id] - [01a1024c-a416-4b3e-b600-4b98f7fa1039] Unhandled exception: ac-irxwxl4-shard-00-00.rkjvsor.mongodb.net:27017: connection closed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms),ac-irxwxl4-shard-00-01.rkjvsor.mongodb.net:27017: connection closed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms),ac-irxwxl4-shard-00-02.rkjvsor.mongodb.net:27017: connection closed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms), Timeout: 5.0s, Topology Description: <TopologyDescription id: 67f364a65d62b4a43ac46186, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-irxwxl4-shard-00-00.rkjvsor.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-irxwxl4-shard-00-00.rkjvsor.mongodb.net:27017: connection closed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms)')>, <ServerDescription ('ac-irxwxl4-shard-00-01.rkjvsor.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-irxwxl4-shard-00-01.rkjvsor.mongodb.net:27017: connection closed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms)')>, <ServerDescription ('ac-irxwxl4-shard-00-02.rkjvsor.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-irxwxl4-shard-00-02.rkjvsor.mongodb.net:27017: connection closed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms)')>]>
+2025-04-07 11:42:59,123 - __main__ - INFO - [no_request_id] - [fba8f977-ce81-4bb6-a7fd-db9fe6edfd94] Retrieved 3 user IDs
+2025-04-07 11:43:06,291 - __main__ - INFO - [no_request_id] - [c53f9068-1803-40bf-8776-91d9158bb7e3] Retrieved 1 attendance records for user 98161
+2025-04-07 11:43:08,191 - __main__ - INFO - [no_request_id] - [2118c367-76f7-4bcc-8abb-59af452d8c2c] Retrieved 1 attendance records for user 25403
+2025-04-07 12:50:02,272 - __main__ - ERROR - [no_request_id] - [5bbf1831-99ee-482e-8514-d4a5529ac824] Unhandled exception: ac-irxwxl4-shard-00-00.rkjvsor.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms),ac-irxwxl4-shard-00-01.rkjvsor.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms),ac-irxwxl4-shard-00-02.rkjvsor.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms), Timeout: 5.0s, Topology Description: <TopologyDescription id: 67f364a65d62b4a43ac46186, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-irxwxl4-shard-00-00.rkjvsor.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-irxwxl4-shard-00-00.rkjvsor.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms)')>, <ServerDescription ('ac-irxwxl4-shard-00-01.rkjvsor.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-irxwxl4-shard-00-01.rkjvsor.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms)')>, <ServerDescription ('ac-irxwxl4-shard-00-02.rkjvsor.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-irxwxl4-shard-00-02.rkjvsor.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 5000.0ms, connectTimeoutMS: 5000.0ms)')>]>
+2025-04-07 12:51:45,411 - __main__ - INFO - [no_request_id] - [9020c537-e4ca-43f5-b110-378f0139c291] Retrieved 3 user IDs
+2025-04-07 12:52:16,811 - __main__ - INFO - [no_request_id] - Application shutting down
+2025-04-07 12:52:16,973 - __main__ - INFO - [no_request_id] - Database connection closed
+2025-04-07 12:53:35,105 - __main__ - WARNING - [no_request_id] - [66ecf0cc-a23d-472a-8251-3f9974119cd5] Duplicate check-in attempt for Tester
+2025-04-07 12:56:02,155 - __main__ - WARNING - [no_request_id] - [37366316-3aac-49de-80da-57e2c6318f88] Duplicate check-in attempt for Tester
+2025-04-07 12:57:37,926 - __main__ - INFO - [no_request_id] - [e7f6c6d5-eb94-481b-9a2d-b7c6438b96a9] Bhuvanesh P checked out at 12:57:37
+2025-04-07 12:57:50,902 - __main__ - WARNING - [no_request_id] - [8af2728b-a941-4078-bcbf-f1cd8de00ba1] Bhuvanesh P has already checked out today.
+2025-04-07 13:12:02,761 - __main__ - INFO - [no_request_id] - Application shutting down
+2025-04-07 13:12:08,175 - __main__ - INFO - [no_request_id] - Database connection closed
