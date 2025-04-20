@@ -2,6 +2,7 @@
 Without camera check on backend /status endpoint
 Replaced cv2 with PIL
 Added mail notification functionality
+Admin priviledge added
 
 """
 
@@ -146,15 +147,16 @@ def extract_embedding(image_data):
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", 
-                   "https://trusten.vercel.app/", 
-                   "https://trusten-p-bhuvaneshs-projects.vercel.app/",
-                   "https://trusten-git-main-p-bhuvaneshs-projects.vercel.app/"], 
+    allow_origins=[
+        "https://trusten.vercel.app",
+        "http://localhost:5173",
+        "https://trusten-p-bhuvaneshs-projects.vercel.app",
+        "https://trusten-git-main-p-bhuvaneshs-projects.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 @app.get("/")
 def root():
     return {"python server":"running"}
