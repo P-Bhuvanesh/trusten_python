@@ -20,3 +20,7 @@ tensorboard-data-server==0.7.2
 tensorflow==2.19.0
 uvicorn==0.34.0
 opencv-python-headless==4.11.0.86
+aiosmtplib==3.0.2
+fastapi-mail==1.4.2 
+email_validator==2.2.0
+dnspython==2.7.0

@@ -4,3 +4,6 @@
 attendace_app.log
 check.py
 attendace_app.log
+mail_logs.log
+vercel.json
+/api

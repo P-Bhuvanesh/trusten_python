@@ -770,18 +770,6 @@ async def get_metrics():
         )
     }
 
-# Graceful shutdown handler
-@app.on_event("shutdown")
-def shutdown_event():
-    """Cleanup resources on application shutdown"""
-    logger.info("Application shutting down")
-    if db_connection and "client" in db_connection:
-        try:
-            db_connection["client"].close()
-            logger.info("Database connection closed")
-        except Exception as e:
-            logger.error(f"Error closing database connection: {e}")
-
 if __name__ == "__main__":
     print("\n\n!!!!!!!!!! PYTHON SERVER IS UP !!!!!!!!!!!!\n\n")
     

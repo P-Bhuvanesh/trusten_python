@@ -1,6 +1,7 @@
 """
 Without camera check on backend /status endpoint
 Replaced cv2 with PIL
+Added mail notification functionality
 
 """
 
@@ -27,8 +28,14 @@ import random
 from dotenv import load_dotenv
 from bson.json_util import dumps
 import json
+from email_utils import send_email_async
+from fastapi import BackgroundTasks
 
 load_dotenv()
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+import tensorflow as tf
 
 logging.basicConfig(
     level=logging.INFO,
@@ -43,25 +50,9 @@ class MediaPipeFilter(logging.Filter):
 
 logger.addFilter(MediaPipeFilter())
 
-
-app = FastAPI()
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-@app.get("/")
-def root():
-    return {"python server":"running"}
-
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-import tensorflow as tf
-
+mp_face_detection = mp.solutions.face_detection
+face_detection = mp_face_detection.FaceDetection()
+embedder = FaceNet() 
 
 def get_database_connection():
     try:
@@ -103,24 +94,10 @@ class User(BaseModel):
     department: str
     images: list[str] 
 
-@app.get("/status")
-def get_status():
-    if db_connection is None:
-        database_status = False
-    else:
-        database_status = True
-    return {
-        "database": database_status,
-        "server": True  # Since endpoint worked, server is running
-    }
+class LoginData(BaseModel):
+    username: str
+    password: str
 
-
-
-mp_face_detection = mp.solutions.face_detection
-face_detection = mp_face_detection.FaceDetection()
-embedder = FaceNet()
-
-# Replace OpenCV with PIL for image processing
 def extract_embedding(image_data):
     """Extract facial embeddings from an image"""
     try:
@@ -166,6 +143,44 @@ def extract_embedding(image_data):
         traceback.print_exc()
         return None
 
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", 
+                   "https://trusten.vercel.app/", 
+                   "https://trusten-p-bhuvaneshs-projects.vercel.app/",
+                   "https://trusten-git-main-p-bhuvaneshs-projects.vercel.app/"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/")
+def root():
+    return {"python server":"running"}
+
+@app.post("/admin/login")
+async def admin_login(data: LoginData):
+    print(data)
+    print(os.getenv("USERNAME"))
+    print(data.username == os.getenv("USERNAME"))
+    print(os.getenv("PASSWORD"))
+    print(data.password == os.getenv("PASSWORD"))
+    if data.username == os.getenv("ADMINUSER") and data.password == os.getenv("ADMINPASSWORD"):
+        return {"success": True}
+    return {"success": False}
+
+@app.get("/status")
+def get_status():
+    if db_connection is None:
+        database_status = False
+    else:
+        database_status = True
+    return {
+        "database": database_status,
+        "server": True 
+    }
+
 @app.exception_handler(Exception)
 async def global_exception_handler(request, exc):
     """Global exception handler to log and return detailed error messages"""
@@ -181,27 +196,28 @@ async def global_exception_handler(request, exc):
     )
 
 @app.post("/add_user")
-async def add_user(user: User):
+async def add_user(user: User, background_tasks: BackgroundTasks):
     try:
         if db_connection is None:
             raise HTTPException(status_code=500, detail="Database connection failed")
 
         # Check if user already exists
         existing_user = db_connection['users_collection'].find_one({
-            "email":user.email
+            "email": user.email
         })
         if existing_user:
             logger.warning(f"Duplicate user detected: {user.email}")
             raise HTTPException(status_code=400, detail="User already exists")
 
         embeddings_list = []
-        for idx, img_data in enumerate(user.images[:10]):  # Limit to 10 images
+        for idx, img_data in enumerate(user.images[:10]):
             embedding = extract_embedding(img_data)
             if embedding:
                 embeddings_list.append(embedding)
 
         if not embeddings_list:
             raise HTTPException(status_code=400, detail="No valid face detected in images")
+
         try:
             user_id = generate_unique_id()
             db_connection['users_collection'].insert_one({
@@ -219,7 +235,34 @@ async def add_user(user: User):
             logger.error(f"Database error while inserting user {user.name}: {db_error}")
             raise HTTPException(status_code=500, detail="Database error while saving user")
 
-        return {"message": f"{user.name} your ID is: {user_id}"}
+        # Send welcome email
+        subject = f"Welcome to Trusten.Vision - You're Now Set to Check In/Out"
+        body = f"""\
+            Hello {user.name},
+
+            Welcome aboard! You have been successfully added to the Trusten.Vision attendance system.
+
+            Your unique ID is: **{user_id}**
+
+            Your details:
+            - Name: {user.name}
+            - Designation :{user.designation}
+            - Department :{user.department}
+
+            You can now start using the application to check in and check out. Your attendance will be securely recorded and accessible by the admin team.
+
+            If you have any questions or need assistance, feel free to reach out to our support team.
+
+            Best regards,  
+            Team Trusten.Vision
+        """
+
+
+        background_tasks.add_task(send_email_async, user.email, subject, body)
+
+        return {
+            "message": f"{user.name}, your ID is: {user_id}"
+        }
 
     except HTTPException as http_err:
         raise http_err
@@ -227,89 +270,91 @@ async def add_user(user: User):
         logger.error(f"Unexpected error in add_user: {e}")
         raise HTTPException(status_code=500, detail="Unexpected error occurred")
 
-@app.post("/recognize")
-async def recognize_face(data: ImageData):
-    try:
-        # Check database connection
-        if db_connection is None:
-            raise HTTPException(status_code=500, detail="Database connection failed")
-
-        embedding = extract_embedding(data.image)
-        if embedding is None:
-            raise HTTPException(status_code=400, detail="No face detected")
-
-        users = db_connection['users_collection'].find({}, {"name": 1, "embeddings": 1})
-
-        recognized_user = None
-        recognized_user_id = None
-        min_distance = 0.6  # Threshold for recognition
-
-        for user in users:
-            for stored_embedding in user["embeddings"]:
-                distance = cosine(embedding, stored_embedding)
-                if distance < min_distance:
-                    min_distance = distance
-                    recognized_user = user["name"]
-                    recognized_user_id = user["user_id"]
-
-        if recognized_user:
-            return {"name": recognized_user}
-        else:
-            return {"name": "Unknown"}
-    except Exception as e:
-        logger.error(f"Error in recognize_face: {e}")
-        traceback.print_exc()
-        raise
-    
 
 @app.post("/check-in")
-async def check_in(data: ImageData):
+async def check_in(data: ImageData, background_tasks: BackgroundTasks):
     try:
-        # Check database connection
         if db_connection is None:
             raise HTTPException(status_code=500, detail="Database connection failed")
-        
+
         embedding = extract_embedding(data.image)
         if embedding is None:
             raise HTTPException(status_code=400, detail="No face detected")
 
-        users = db_connection['users_collection'].find({}, {"user_id":1,"name": 1, "embeddings": 1})
+        users = db_connection['users_collection'].find({}, {"user_id": 1, "name": 1, "email": 1, "embeddings": 1})
         recognized_user = None
         user_details = None
-        min_distance = 0.45
+        best_score = 1.0
+        threshold = 0.7
+
         for user in users:
-            for stored_embedding in user["embeddings"]:
-                distance = cosine(embedding, stored_embedding)
-                if distance < min_distance:
-                    min_distance = distance
-                    recognized_user = user["name"]
-                    user_details = user
-        
-        if recognized_user == None:
+            stored_embeddings = user["embeddings"]
+            if not stored_embeddings:
+                continue
+
+            distances = [cosine(embedding, e) for e in stored_embeddings]
+            avg_distance = sum(distances) / len(distances)
+
+            if avg_distance < threshold and avg_distance < best_score:
+                best_score = avg_distance
+                recognized_user = user["name"]
+                user_details = user
+
+        if recognized_user is None:
             raise HTTPException(status_code=400, detail="User not recognized")
 
         today = datetime.date.today().strftime("%Y-%m-%d")
+        parsed_date = datetime.datetime.strptime(today, "%Y-%m-%d")
+        reversed_format = parsed_date.strftime("%d %B %Y")
+
         now_time = datetime.datetime.now().strftime("%H:%M:%S")
 
-        existing_record = db_connection['attendance_collection'].find_one({"user_id":user_details["user_id"], "date": today})
+        existing_record = db_connection['attendance_collection'].find_one({
+            "user_id": user_details["user_id"],
+            "date": today
+        })
 
-        if existing_record:
+        if existing_record and existing_record.get("check_in"):
             logger.warning(f"Duplicate check-in attempt for {recognized_user}")
-            message = f"{recognized_user} has already checked in today."
-            raise HTTPException(status_code=400, detail=f"{recognized_user} has already checked in today")
+            raise HTTPException(status_code=400, detail=f"{recognized_user} has already checked in today.")
 
         db_connection['attendance_collection'].insert_one({
-            "user_id":user_details["user_id"],
+            "user_id": user_details["user_id"],
             "date": today,
             "check_in": now_time,
             "check_out": None
         })
 
-        success_message = f"Hello, {recognized_user}. You have been checked in."
+        updated_embeddings = user_details["embeddings"]
+        updated_embeddings.append(embedding)
+        if len(updated_embeddings) > 10:  # rolling buffer size = 10
+            updated_embeddings = updated_embeddings[-10:]
+
+        db_connection['users_collection'].update_one(
+            {"user_id": user_details["user_id"]},
+            {"$set": {"embeddings": updated_embeddings}}
+        )
 
         logger.info(f"{recognized_user} checked in at {now_time}")
-        return {"message": f"{recognized_user} checked in at {now_time}"}
-    
+
+        subject = f"Check-in Confirmation"
+
+        body = f"""
+            Hello {recognized_user},
+
+            This is to confirm that you have successfully checked in on {reversed_format} at {now_time}.
+
+            Thank you for using the Trusten.Vision Attendance System. If you did not perform this action, please contact your administrator immediately.
+
+            Best regards,  
+            Team Trusten devs
+        """
+        background_tasks.add_task(send_email_async, user_details["email"], subject, body)
+
+        return {
+            "message": f"{recognized_user} checked in at {now_time}"
+            }
+
     except HTTPException:
         raise
     except Exception as e:
@@ -318,7 +363,7 @@ async def check_in(data: ImageData):
         raise
 
 @app.post("/check-out")
-async def check_out(data: ImageData):
+async def check_out(data: ImageData, background_tasks: BackgroundTasks):
     try:
         if db_connection is None:
             raise HTTPException(status_code=500, detail="Database connection failed")
@@ -327,7 +372,7 @@ async def check_out(data: ImageData):
         if embedding is None:
             raise HTTPException(status_code=400, detail="No face detected")
 
-        users = db_connection['users_collection'].find({}, {"user_id":1,"name": 1, "embeddings": 1})
+        users = db_connection['users_collection'].find({}, {"user_id":1,"name": 1, "embeddings": 1, "email":1})
         recognized_user = None
         user_details = None
         min_distance = 0.45
@@ -344,6 +389,8 @@ async def check_out(data: ImageData):
             raise HTTPException(status_code=400, detail="User not recognized")
 
         today = datetime.date.today().strftime("%Y-%m-%d")
+        parsed_date = datetime.datetime.strptime(today, "%Y-%m-%d")
+        reversed_format = parsed_date.strftime("%d %B %Y")
         now_time = datetime.datetime.now().strftime("%H:%M:%S")
 
         existing_record = db_connection['attendance_collection'].find_one({
@@ -353,8 +400,8 @@ async def check_out(data: ImageData):
         })
 
         if not existing_record:
-            message = f"{recognized_user} has not checked in today."
-            raise HTTPException(status_code=400, detail=f"{recognized_user} has not checked in today")
+            message = f"{recognized_user} has not checked in today. \nYou must check in before checking out"
+            raise HTTPException(status_code=400, detail=message)
 
         if existing_record.get("check_out"):
             message = f"{recognized_user} has already checked out today."
@@ -364,6 +411,30 @@ async def check_out(data: ImageData):
             {"_id": existing_record["_id"]},
             {"$set": {"check_out": now_time}}
         )
+
+        updated_embeddings = user_details["embeddings"]
+        updated_embeddings.append(embedding)
+        if len(updated_embeddings) > 10:  # rolling buffer size = 10
+            updated_embeddings = updated_embeddings[-10:]
+
+        db_connection['users_collection'].update_one(
+            {"user_id": user_details["user_id"]},
+            {"$set": {"embeddings": updated_embeddings}}
+        )
+
+        subject = f"Check-out Confirmation"
+
+        body = f"""
+            Hello {recognized_user},
+
+            This is to confirm that you have successfully checked out on {reversed_format} at {now_time}.
+
+            Thank you for using the Trusten.Vision Attendance System. If you did not perform this action, please contact your administrator immediately.
+
+            Best regards,  
+            Team Trusten devs
+        """
+        background_tasks.add_task(send_email_async, user_details["email"], subject, body)
 
         success_message = f"Thank you, {recognized_user}. You have been checked out."
 
