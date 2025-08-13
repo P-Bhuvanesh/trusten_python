@@ -31,6 +31,8 @@ from bson.json_util import dumps
 import json
 from email_utils import send_email_async
 from fastapi import BackgroundTasks
+from apscheduler.schedulers.background import BackgroundScheduler
+import requests
 
 load_dotenv()
 
@@ -182,6 +184,19 @@ def get_status():
         "database": database_status,
         "server": True 
     }
+
+def ping_server():
+    try:
+        res = requests.get("https://trusten-python.onrender.com/")
+        print(f"Ping status: {res.status_code}")
+    except Exception as e:
+        print(f"Ping failed: {e}")
+
+@app.on_event("startup")
+def start_scheduler():
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(ping_server, "interval", minutes=14)
+    scheduler.start()
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request, exc):
